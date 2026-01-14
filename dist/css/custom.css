@@ -1,0 +1,242 @@
+/* Custom Professional Colors for Admin Section */
+
+/* Professional Color Scheme - Navy Blue and Professional Grays */
+
+/* Navbar Professional Styling */
+.navbar-dark {
+  background-color: #1e293b !important; /* Professional dark navy */
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link:focus {
+  color: #ffffff !important;
+}
+
+/* Sidebar Professional Styling */
+.sidebar-dark-primary .brand-link {
+  background-color: #0f172a !important; /* Deep navy for brand */
+  color: #ffffff !important;
+}
+
+.sidebar-dark-primary {
+  background-color: #1e293b !important; /* Professional dark navy */
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #3b82f6 !important; /* Professional blue accent */
+  color: #ffffff !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover {
+  background-color: rgba(59, 130, 246, 0.15) !important; /* Subtle hover */
+  color: #ffffff !important;
+}
+
+.sidebar-dark-primary .nav-sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.sidebar-dark-primary .nav-header {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-weight: 600 !important;
+}
+
+/* Content Wrapper Professional Background */
+.content-wrapper.bg-dark {
+  background-color: #0f172a !important; /* Deep professional dark */
+}
+
+.content-wrapper .content {
+  background-color: transparent !important;
+}
+
+.content-wrapper h1.text-light,
+.content-wrapper .text-light {
+  color: #f1f5f9 !important; /* Soft white for better readability */
+}
+
+.content-wrapper hr.border-light {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Professional Info Boxes */
+.info-box {
+  background-color: #1e293b !important; /* Professional dark */
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.info-box:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.info-box-icon.bg-light {
+  background-color: #334155 !important; /* Professional gray */
+  color: #f1f5f9 !important;
+}
+
+.info-box-icon.bg-info {
+  background-color: #0ea5e9 !important; /* Professional cyan */
+  color: #ffffff !important;
+}
+
+.info-box-icon.bg-success {
+  background-color: #10b981 !important; /* Professional green */
+  color: #ffffff !important;
+}
+
+.info-box-icon.bg-warning {
+  background-color: #f59e0b !important; /* Professional amber */
+  color: #ffffff !important;
+}
+
+.info-box-content {
+  color: #f1f5f9 !important;
+}
+
+.info-box-text {
+  color: rgba(241, 245, 249, 0.8) !important;
+  font-weight: 500 !important;
+}
+
+.info-box-number {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Footer Professional Styling */
+.main-footer {
+  background-color: #1e293b !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Modal Professional Styling */
+.modal-content {
+  background-color: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.modal-header {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.modal-body {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+.modal-footer {
+  background-color: #1e293b !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Button Professional Colors */
+.btn-primary {
+  background-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+.btn-secondary {
+  background-color: #64748b !important;
+  border-color: #64748b !important;
+}
+
+.btn-secondary:hover {
+  background-color: #475569 !important;
+  border-color: #475569 !important;
+}
+
+/* Dropdown Professional Styling */
+.dropdown-menu {
+  background-color: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Badge Professional Colors */
+.badge-light {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Card Professional Styling (if used) */
+.card {
+  background-color: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #f1f5f9 !important;
+}
+
+.card-header {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Table Professional Styling (if used in admin) */
+.table {
+  color: #f1f5f9 !important;
+}
+
+.table-dark {
+  background-color: #1e293b !important;
+}
+
+/* Form Controls Professional Styling */
+.form-control {
+  background-color: #0f172a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f1f5f9 !important;
+}
+
+.form-control:focus {
+  background-color: #0f172a !important;
+  border-color: #3b82f6 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+}
+
+.form-control::placeholder {
+  color: rgba(241, 245, 249, 0.5) !important;
+}
+
+/* Professional Scrollbar (optional enhancement) */
+.os-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.os-scrollbar-handle {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.os-scrollbar-handle:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
