@@ -1,0 +1,109 @@
+@startuml Diagrama de Clases - Custom Club Suite
+
+' Clase Base
+class DBConnection {
+  -host: string
+  -username: string
+  -password: string
+  -database: string
+  +conn: mysqli
+  +__construct()
+  +__destruct()
+}
+
+' Clase de Configuración del Sistema
+class SystemSettings {
+  +__construct()
+  +check_connection(): mysqli
+  +load_system_info(): void
+  +update_system_info(): bool
+  +update_settings_info(): bool
+  +set_userdata(field, value): void
+  +userdata(field): mixed
+  +set_flashdata(flash, value): bool
+  +chk_flashdata(flash): bool
+  +flashdata(flash): mixed
+  +sess_des(): bool
+  +info(field): mixed
+  +set_info(field, value): void
+}
+
+' Clase de Autenticación
+class Login {
+  -settings: SystemSettings
+  +__construct()
+  +__destruct()
+  +index(): void
+  +login(): string
+  +logout(): void
+  +login_user(): string
+}
+
+' Clase de Usuarios
+class Users {
+  -settings: SystemSettings
+  +__construct()
+  +__destruct()
+  +save_users(): int
+  +delete_users(): string
+  +save_fusers(): int|string
+  +save_susers(): int|string
+}
+
+' Clase Maestra (CRUD)
+class Master {
+  -settings: SystemSettings
+  +__construct()
+  +__destruct()
+  +capture_err(): string|bool
+  +save_category(): string
+  +delete_category(): string
+  +save_service(): string
+  +delete_service(): string
+  +save_mechanic(): string
+  +delete_mechanic(): string
+  +save_request(): string
+  +delete_request(): string
+}
+
+' Clase de Zonas
+class Zone {
+  -settings: SystemSettings
+  +__construct()
+  +__destruct()
+  +save_zone(): int|string
+  +delete_zone(): int|bool
+}
+
+' Relaciones de Herencia
+DBConnection <|-- SystemSettings
+DBConnection <|-- Login
+DBConnection <|-- Users
+DBConnection <|-- Master
+DBConnection <|-- Zone
+
+' Relaciones de Composición/Uso
+Login --> SystemSettings : uses
+Users --> SystemSettings : uses
+Master --> SystemSettings : uses
+Zone --> SystemSettings : uses
+
+note right of DBConnection
+  Clase base que maneja
+  la conexión a la base de datos
+  usando MySQLi
+end note
+
+note right of SystemSettings
+  Gestiona la configuración
+  del sistema, sesiones y
+  mensajes flash
+end note
+
+note right of Master
+  Clase principal para operaciones
+  CRUD de categorías, servicios,
+  mecánicos y solicitudes
+end note
+
+@enduml

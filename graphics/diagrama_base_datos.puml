@@ -1,0 +1,99 @@
+@startuml Diagrama de Base de Datos - Custom Club Suite
+
+entity "users" {
+  * id : INT <<PK>>
+  --
+  * firstname : VARCHAR(250)
+  * lastname : VARCHAR(250)
+  * username : TEXT
+  * password : TEXT
+  avatar : TEXT
+  last_login : DATETIME
+  * type : TINYINT(1)
+  * date_added : DATETIME
+  date_updated : DATETIME
+}
+
+entity "categories" {
+  * id : INT <<PK>>
+  --
+  * category : VARCHAR(250)
+  * status : TINYINT(1)
+  * date_created : DATETIME
+}
+
+entity "service_list" {
+  * id : INT <<PK>>
+  --
+  * service : TEXT
+  * description : TEXT
+  * status : TINYINT(4)
+  * date_created : DATETIME
+}
+
+entity "mechanics_list" {
+  * id : INT <<PK>>
+  --
+  * name : TEXT
+  * contact : VARCHAR(50)
+  * email : VARCHAR(150)
+  * status : TINYINT(1)
+  * date_created : DATETIME
+}
+
+entity "service_requests" {
+  * id : INT <<PK>>
+  --
+  * owner_name : TEXT
+  * category_id : INT <<FK>>
+  * service_type : TEXT
+  mechanic_id : INT <<FK>>
+  * status : TINYINT(1)
+  * date_created : DATETIME
+}
+
+entity "request_meta" {
+  * request_id : INT <<FK>>
+  * meta_field : TEXT
+  * meta_value : TEXT
+}
+
+entity "system_info" {
+  * id : INT <<PK>>
+  --
+  * meta_field : TEXT
+  * meta_value : TEXT
+}
+
+entity "barangay_list" {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR
+  * name : VARCHAR
+  * other_fields : VARCHAR
+}
+
+' Relaciones
+service_requests }o--|| categories : "pertenece a"
+service_requests }o--o| mechanics_list : "asignado a"
+request_meta }o--|| service_requests : "metadatos de"
+
+note right of service_requests
+  Tabla principal que almacena
+  las solicitudes de servicio
+  de los clientes
+end note
+
+note right of request_meta
+  Almacena metadatos adicionales
+  de las solicitudes de forma
+  flexible (EAV pattern)
+end note
+
+note right of system_info
+  Almacena configuración del
+  sistema en formato clave-valor
+  (meta_field, meta_value)
+end note
+
+@enduml

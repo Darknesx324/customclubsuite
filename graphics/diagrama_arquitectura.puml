@@ -1,0 +1,83 @@
+@startuml Diagrama de Arquitectura del Sistema - Custom Club Suite
+
+package "Capa de Presentación" {
+  [Páginas PHP] as pages
+  [Admin Panel] as admin
+  [Frontend] as frontend
+}
+
+package "Capa de Lógica de Negocio" {
+  [Login] as login_class
+  [Users] as users_class
+  [Master] as master_class
+  [Zone] as zone_class
+  [SystemSettings] as settings_class
+}
+
+package "Capa de Acceso a Datos" {
+  [DBConnection] as db_class
+  [MySQLi Connection] as mysqli
+}
+
+package "Base de Datos" {
+  database "MySQL/MariaDB" {
+    [users]
+    [categories]
+    [service_list]
+    [mechanics_list]
+    [service_requests]
+    [request_meta]
+    [system_info]
+    [barangay_list]
+  }
+}
+
+package "Recursos" {
+  [Archivos CSS/JS] as assets
+  [Uploads] as uploads
+  [Librerías] as libs
+}
+
+pages --> admin
+pages --> frontend
+admin --> login_class
+admin --> users_class
+admin --> master_class
+admin --> zone_class
+frontend --> login_class
+
+login_class --> settings_class
+users_class --> settings_class
+master_class --> settings_class
+zone_class --> settings_class
+
+login_class --> db_class
+users_class --> db_class
+master_class --> db_class
+zone_class --> db_class
+settings_class --> db_class
+
+db_class --> mysqli
+mysqli --> database
+
+pages --> assets
+pages --> libs
+users_class --> uploads
+settings_class --> uploads
+
+note right of pages
+  Páginas PHP que renderizan
+  la interfaz de usuario
+end note
+
+note right of db_class
+  Clase singleton que gestiona
+  la conexión a la base de datos
+end note
+
+note right of settings_class
+  Gestiona sesiones, configuración
+  y mensajes flash del sistema
+end note
+
+@enduml

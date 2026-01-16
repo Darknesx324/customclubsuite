@@ -1,0 +1,62 @@
+@startuml Diagrama de Flujo - Proceso de Solicitud de Servicio
+
+start
+
+:Cliente accede al sistema;
+:Cliente inicia sesión;
+
+if (¿Credenciales válidas?) then (No)
+  :Mostrar error;
+  stop
+else (Sí)
+endif
+
+:Cliente crea solicitud de servicio;
+:Completar formulario:
+  - Nombre del propietario
+  - Categoría del vehículo
+  - Tipo de servicio
+  - Información del vehículo
+  - Datos de contacto;
+
+:Guardar solicitud en BD;
+:Guardar metadatos adicionales;
+
+if (¿Solicitud guardada exitosamente?) then (No)
+  :Mostrar error;
+  stop
+else (Sí)
+endif
+
+:Administrador revisa solicitud;
+
+if (¿Asignar mecánico?) then (Sí)
+  :Seleccionar mecánico disponible;
+  :Asignar mecánico a solicitud;
+  :Actualizar estado de solicitud;
+else (No)
+endif
+
+:Actualizar estado de solicitud:
+  - 0: Pendiente
+  - 1: En proceso
+  - 2: Completada
+  - 3: Cancelada;
+
+if (¿Estado = Completada?) then (Sí)
+  :Marcar solicitud como finalizada;
+  :Notificar al cliente;
+else (No)
+endif
+
+stop
+
+note right
+  Estados de Solicitud:
+  0 = Pendiente
+  1 = En proceso
+  2 = Completada
+  3 = Cancelada
+end note
+
+@enduml

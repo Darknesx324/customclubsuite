@@ -1,0 +1,134 @@
+@startuml Diagrama de Casos de Uso - Custom Club Suite
+
+left to right direction
+
+actor "Administrador" as admin
+actor "Cliente" as client
+actor "Mecánico" as mechanic
+
+rectangle "Sistema Custom Club Suite" {
+  
+  package "Gestión de Autenticación" {
+    usecase "Iniciar Sesión" as UC1
+    usecase "Cerrar Sesión" as UC2
+    usecase "Registrar Usuario" as UC3
+  }
+  
+  package "Gestión de Usuarios" {
+    usecase "Crear Usuario" as UC4
+    usecase "Editar Usuario" as UC5
+    usecase "Eliminar Usuario" as UC6
+    usecase "Ver Lista de Usuarios" as UC7
+  }
+  
+  package "Gestión de Categorías" {
+    usecase "Crear Categoría" as UC8
+    usecase "Editar Categoría" as UC9
+    usecase "Eliminar Categoría" as UC10
+    usecase "Ver Categorías" as UC11
+  }
+  
+  package "Gestión de Servicios" {
+    usecase "Crear Servicio" as UC12
+    usecase "Editar Servicio" as UC13
+    usecase "Eliminar Servicio" as UC14
+    usecase "Ver Servicios" as UC15
+  }
+  
+  package "Gestión de Mecánicos" {
+    usecase "Crear Mecánico" as UC16
+    usecase "Editar Mecánico" as UC17
+    usecase "Eliminar Mecánico" as UC18
+    usecase "Ver Mecánicos" as UC19
+  }
+  
+  package "Gestión de Solicitudes" {
+    usecase "Crear Solicitud de Servicio" as UC20
+    usecase "Ver Solicitud" as UC21
+    usecase "Editar Solicitud" as UC22
+    usecase "Eliminar Solicitud" as UC23
+    usecase "Asignar Mecánico" as UC24
+    usecase "Actualizar Estado" as UC25
+  }
+  
+  package "Gestión de Zonas" {
+    usecase "Crear Zona" as UC26
+    usecase "Editar Zona" as UC27
+    usecase "Eliminar Zona" as UC28
+  }
+  
+  package "Configuración del Sistema" {
+    usecase "Ver Información del Sistema" as UC29
+    usecase "Actualizar Configuración" as UC30
+    usecase "Gestionar Logo y Portada" as UC31
+  }
+  
+  package "Reportes" {
+    usecase "Generar Reportes" as UC32
+  }
+}
+
+' Relaciones del Administrador
+admin --> UC1
+admin --> UC2
+admin --> UC3
+admin --> UC4
+admin --> UC5
+admin --> UC6
+admin --> UC7
+admin --> UC8
+admin --> UC9
+admin --> UC10
+admin --> UC11
+admin --> UC12
+admin --> UC13
+admin --> UC14
+admin --> UC15
+admin --> UC16
+admin --> UC17
+admin --> UC18
+admin --> UC19
+admin --> UC20
+admin --> UC21
+admin --> UC22
+admin --> UC23
+admin --> UC24
+admin --> UC25
+admin --> UC26
+admin --> UC27
+admin --> UC28
+admin --> UC29
+admin --> UC30
+admin --> UC31
+admin --> UC32
+
+' Relaciones del Cliente
+client --> UC1
+client --> UC2
+client --> UC20
+client --> UC21
+
+' Relaciones del Mecánico
+mechanic --> UC1
+mechanic --> UC2
+mechanic --> UC21
+mechanic --> UC25
+
+note right of admin
+  Tiene acceso completo
+  a todas las funcionalidades
+  del sistema
+end note
+
+note right of client
+  Puede crear y ver
+  sus propias solicitudes
+end note
+
+note right of mechanic
+  Puede ver solicitudes
+  asignadas y actualizar
+  su estado
+end note
+
+@enduml
